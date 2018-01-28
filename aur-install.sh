@@ -2,7 +2,7 @@
 
 echo $1
 
-AUR-INSTALL(){
+AUR_INSTALL(){
   local package=${1}
   local user='prova'
 
@@ -16,4 +16,4 @@ AUR-INSTALL(){
   rm -rf ${package}
 }
 
-AUR-INSTALL $1
+AUR_INSTALL $1
