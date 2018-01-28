@@ -1,5 +1,7 @@
 #!/bin/bash -e
 
+echo $1
+
 AUR-INSTALL(){
   local package=${1}
   local user='prova'
