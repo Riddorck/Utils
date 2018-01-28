@@ -1,6 +1,4 @@
 #!/bin/bash -e
-  
-AUR-INSTALL $1
 
 AUR-INSTALL(){
   local package=${1}
@@ -15,3 +13,5 @@ AUR-INSTALL(){
   rm -f ${package}.tar.gz
   rm -rf ${package}
 }
+
+AUR-INSTALL $1
