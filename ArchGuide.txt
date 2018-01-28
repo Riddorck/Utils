@@ -1,38 +1,38 @@
 -|- Basic installation -|-
 
-#01#	loadkeys		it																	[Imposta la tastiera it TEMPORANEAMENTE]
-#02#	timedatectl		set-ntp true
-#03#					status																[Eseguire #4 e #5 solo con errore nell'ora]
-#04#					list-timezones
-#05#					set-timezone														[(Europe/Rome)]
-#06#	fdisk			-l																	[Segnare partizione - Ignorare rom, loop o airoot]
-#07#	parted			[partizione #6#] mklabel msdos										[Solitamente /dev/sda]
-#08#	parted			[partizione #6#] mktable msdos
-#09#	parted			[partizione #6#] mkpart primary ext4 1M 100%
-#10#	fdisk			-l																	[Segnare nuova partizione - Ignorare rom, loop o airoot]
-#11#	mkfs.ext4		[partizione #10#]													[Solitamente /dev/sda1]
-#12#	mount			[partizione #10#] /mnt
-#13#	pacstrap		/mnt base base-devel												[Installa pacchetti di base] [Mirror list a /etc/pacman.d/mirrorlist]
-#14#	genfstab		-U /mnt >> /mnt/etc/fstab
-#15#	arch-chroot		/mnt																[Entra in chroot]
-#16#	ln				-sf /usr/share/zoneinfo/Europe/Rome /etc/localtime
-#17#	hwclock			--systohc
-#18#	nano			/etc/locale.gen														[Decommenta le lingue che vuoi (it_IT.UTF-8 UTF-8)]
-#19#	locale-gen
-#20#	nano			/etc/locale.conf													[Imposta la variable (LANG=it_IT.UTF-8)]
-#21#	nano			/etc/vconsole.conf													[Imposta la variable (KEYMAP=it)]
-#22#	nano			/etc/hostname														[Aggiungi l'hostname del pc]
-#23#	passwd																				[Imposta la password di root (root)]
-#24#	pacman			-S grub
-#25#	grub-install	[partizione #6#]
-#26#	grub-mkconfig	-o /boot/grub/grub.cfg												[Nota bene: grub.cfg va rigenerato dopo ogni cambiamento a /etc/default/grub o ai file in /etc/grub.d/]
-#27#	exit
-#28#	reboot																				[Rimuovere ISO]
-#29#	pacman			-S xorg xorg-xinit xorg-xsetroot
-#30#	pacman			-S i3 wget terminator git dmenu firefox
-#31#	nano			~/.xinitrc															[Aggiungere il window manager (i3)]
-#32# @  pacman			-S virtualbox-guest-utils											[Solo se si usa VirtualBox]
-#33#	startx
+#01#    loadkeys           it                                                               [Imposta la tastiera it TEMPORANEAMENTE]
+#02#    timedatectl        set-ntp true
+#03#                       status                                                           [Eseguire #4 e #5 solo con errore nell'ora]
+#04#                       list-timezones
+#05#                       set-timezone                                                     [(Europe/Rome)]
+#06#    fdisk              -l                                                               [Segnare partizione - Ignorare rom, loop o airoot]
+#07#    parted             [partizione #6#] mklabel msdos                                   [Solitamente /dev/sda]
+#08#    parted             [partizione #6#] mktable msdos
+#09#    parted             [partizione #6#] mkpart primary ext4 1M 100%
+#10#    fdisk              -l                                                               [Segnare nuova partizione - Ignorare rom, loop o airoot]
+#11#    mkfs.ext4          [partizione #10#]                                                [Solitamente /dev/sda1]
+#12#    mount              [partizione #10#] /mnt
+#13#    pacstrap           /mnt base base-devel                                             [Installa pacchetti di base] [Mirror list a /etc/pacman.d/mirrorlist]
+#14#    genfstab           -U /mnt >> /mnt/etc/fstab
+#15#    arch-chroot        /mnt                                                             [Entra in chroot]
+#16#    ln                 -sf /usr/share/zoneinfo/Europe/Rome /etc/localtime
+#17#    hwclock            --systohc
+#18#    nano               /etc/locale.gen                                                  [Decommenta le lingue che vuoi (it_IT.UTF-8 UTF-8)]
+#19#    locale-gen
+#20#    nano               /etc/locale.conf                                                 [Imposta la variable (LANG=it_IT.UTF-8)]
+#21#    nano               /etc/vconsole.conf                                               [Imposta la variable (KEYMAP=it)]
+#22#    nano               /etc/hostname                                                    [Aggiungi l'hostname del pc]
+#23#    passwd                                                                              [Imposta la password di root (root)]
+#24#    pacman             -S grub
+#25#    grub-install       [partizione #6#]
+#26#    grub-mkconfig      -o /boot/grub/grub.cfg                                           [Nota bene: grub.cfg va rigenerato dopo ogni cambiamento a /etc/default/grub o ai file in /etc/grub.d/]
+#27#    exit
+#28#    reboot                                                                              [Rimuovere ISO]
+#29#    pacman             -S xorg xorg-xinit xorg-xsetroot
+#30#    pacman             -S i3 wget terminator git dmenu firefox
+#31#    nano               ~/.xinitrc                                                       [Aggiungere il window manager (i3)]
+#32# @  pacman             -S virtualbox-guest-utils                                        [Solo se si usa VirtualBox]
+#33#    startx
 
 
 -|- Fix rete -|-
@@ -46,7 +46,7 @@ systemctl start dhcpcd
 setxkbmap it
 
 
----		---		---		---
+---        ---        ---        ---
 
 
 useradd -m -d /PATH/TO/FOLDER USERNAME
