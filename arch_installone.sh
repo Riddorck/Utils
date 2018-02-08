@@ -203,9 +203,7 @@ USER(){
 	
 	CREATE_HOME_SCRIPTS ${user}
 
-	INSTALL_YAOURT ${user}
-	
-	yaourt -S spotify
+#	INSTALL_YAOURT ${user}
 
 	popd
 }
