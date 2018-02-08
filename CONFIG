@@ -1,0 +1,12 @@
+BIOS="BIOS" # "BIOS" "UEFI"
+DISK=sda
+
+CONNECTION="eth" # "wifi" "eth"
+ESSID=
+
+WIFI_CONFIG="CASA:Fastweb Ri-Ste:Riddorck01!" # "DESCRIPTION:ESSID:PASSWORD[;DESCRIPTION:ESSID:PASSWORD]*"
+
+HOSTNAME=bozar
+USERNAME=riddorck
+
+VGA= # "nvidia" "amd"
