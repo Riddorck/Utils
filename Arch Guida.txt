@@ -1,10 +1,6 @@
 -|- Basic installation -|-
 
 #01#    loadkeys           it                                                               [Imposta la tastiera it TEMPORANEAMENTE]
-#02#    timedatectl        set-ntp true
-#03#                       status                                                           [Eseguire #4 e #5 solo con errore nell'ora]
-#04#                       list-timezones
-#05#                       set-timezone                                                     [(Europe/Rome)]
 #06#    fdisk              -l                                                               [Segnare partizione - Ignorare rom, loop o airoot]
 #07#    parted             [partizione #6#] mklabel msdos                                   [Solitamente /dev/sda]
 #08#    parted             [partizione #6#] mktable msdos
@@ -27,10 +23,9 @@
 #25#    grub-install       [partizione #6#]
 #26#    grub-mkconfig      -o /boot/grub/grub.cfg                                           [Nota bene: grub.cfg va rigenerato dopo ogni cambiamento a /etc/default/grub o ai file in /etc/grub.d/]
 #27#    exit
-#28#    reboot                                                                              [Rimuovere ISO]
 #29#    pacman             -Sy xorg xorg-xinit xorg-xsetroot
 #30#    pacman             -Sy i3 alsa-utils net-tools acpi linux-headers
-#  #    pacman             -Sy dhcpcd dhclient wpa_supplicant wpa_actiond iproute           [SONO ESSENZIALI!?!?!?]
+#  #    pacman             -Sy dhcpcd dhclient wpa_supplicant wpa_actiond iproute
 #31#    pacman             -Sy wget terminator git dmenu ttf-freefont
 #  #    pacman             -Sy xbindkeys wireless_tools
 #32#    pacman             -Sy thunar viewnior chromium notepadqq eclipse
@@ -40,7 +35,7 @@
 #36#    passwd             [user #32#]
 #37#    EDITOR=nano visudo                                                                  [Aggiungere riga: [user #32#] ALL=(ALL:ALL) ALL]
 #38#    cp                 /etc/X11/xinit/xinitrc /home/[user #32#]/.xinitrc
-#39#    nano               /home/[user #32#]/.xinitrc                                       [Aggiungere comandi da eseguire all'avvio di X (setxkbmap it & [a capo] exec i3)]
+#39#    nano               /home/[user #32#]/.xinitrc                                       [Aggiungere comandi da eseguire all'avvio di X (setxkbmap it & [a capo] exec i3 & [a capo] exec imwheel --kill)]
 #40# @  pacman             -S virtualbox-guest-utils                                        [Solo se si usa VirtualBox]
 #41#    systemctl          enable dhcpcd
 #42#    wget               "https://github.com/Riddorck/Utils/blob/master/aur-install.sh"
@@ -48,8 +43,7 @@
 #44#    sh                 aur-install.sh yaourt [user #32#]
 #45#    rm                 aur-install.sh
 #46#    yaourt             -S spotify imwheel
-#47#    imwheel            --kill
-#47#    startx
+#47#    reboot
 
 
 
