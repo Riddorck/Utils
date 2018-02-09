@@ -175,8 +175,9 @@ CHROOT(){
 	pacman -S --noconfirm i3 alsa-utils net-tools acpi linux-headers
 	pacman -S --noconfirm dhcpcd dhclient wpa_supplicant wpa_actiond iproute
 	pacman -S --noconfirm wget terminator git dmenu ttf-freefont
+	pacman -S --noconfirm xbindkeys wireless_tools
 	pacman -S --noconfirm thunar viewnior chromium notepadqq eclipse
-	pacman -S --noconfirm thunar-archive-plugin unrar p7zip
+	pacman -S --noconfirm thunar-archive-plugin unrar p7zip file-roller thunar-volman
 	pacman -S --noconfirm libreoffice vlc qt4 virtualbox keepass virtualbox-guest-utils
 	
 	if [ "${CONNECTION}" == "wifi" ]; then
