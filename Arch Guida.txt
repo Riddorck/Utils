@@ -1,49 +1,49 @@
 -|- Basic installation -|-
 
 #01#    loadkeys           it                                                               [Imposta la tastiera it TEMPORANEAMENTE]
-#06#    fdisk              -l                                                               [Segnare partizione - Ignorare rom, loop o airoot]
-#07#    parted             [partizione #6#] mklabel msdos                                   [Solitamente /dev/sda]
-#08#    parted             [partizione #6#] mktable msdos
-#09#    parted             [partizione #6#] mkpart primary ext4 1M 100%
-#10#    fdisk              -l                                                               [Segnare nuova partizione - Ignorare rom, loop o airoot]
-#11#    mkfs.ext4          [partizione #10#]                                                [Solitamente /dev/sda1]
-#12#    mount              [partizione #10#] /mnt
-#13#    pacstrap           /mnt base base-devel                                             [Installa pacchetti di base] [Mirror list a /etc/pacman.d/mirrorlist]
-#14#    genfstab           -U /mnt >> /mnt/etc/fstab
-#15#    arch-chroot        /mnt                                                             [Entra in chroot]
-#16#    ln                 -sf /usr/share/zoneinfo/Europe/Rome /etc/localtime
-#17#    hwclock            --systohc
-#18#    nano               /etc/locale.gen                                                  [Decommenta le lingue che vuoi (it_IT.UTF-8 UTF-8)]
-#19#    locale-gen
-#20#    nano               /etc/locale.conf                                                 [Imposta la variable (LANG=it_IT.UTF-8)]
-#21#    nano               /etc/vconsole.conf                                               [Imposta la variable (KEYMAP=it)]
-#22#    nano               /etc/hostname                                                    [Aggiungi l'hostname del pc]
-#23#    passwd                                                                              [Imposta la password di root (root)]
-#24#    pacman             -S grub
-#25#    grub-install       [partizione #6#]
-#26#    grub-mkconfig      -o /boot/grub/grub.cfg                                           [Nota bene: grub.cfg va rigenerato dopo ogni cambiamento a /etc/default/grub o ai file in /etc/grub.d/]
-#27#    exit
-#29#    pacman             -Sy xorg xorg-xinit xorg-xsetroot
-#30#    pacman             -Sy i3 alsa-utils net-tools acpi linux-headers
-#  #    pacman             -Sy dhcpcd dhclient wpa_supplicant wpa_actiond iproute
-#31#    pacman             -Sy wget terminator git dmenu ttf-freefont
-#  #    pacman             -Sy xbindkeys wireless_tools
-#32#    pacman             -Sy thunar viewnior chromium notepadqq eclipse
-#33#    pacman             -Sy thunar-archive-plugin unrar p7zip file-roller thunar-volman
-#34#    pacman             -Sy libreoffice vlc qt4 virtualbox keepass
-#35#    useradd            -m [user]
-#36#    passwd             [user #32#]
-#37#    EDITOR=nano visudo                                                                  [Aggiungere riga: [user #32#] ALL=(ALL:ALL) ALL]
-#38#    cp                 /etc/X11/xinit/xinitrc /home/[user #32#]/.xinitrc
-#39#    nano               /home/[user #32#]/.xinitrc                                       [Aggiungere comandi da eseguire all'avvio di X (setxkbmap it & [a capo] exec i3 & [a capo] exec imwheel --kill)]
-#40# @  pacman             -S virtualbox-guest-utils                                        [Solo se si usa VirtualBox]
-#41#    systemctl          enable dhcpcd
-#42#    wget               "https://github.com/Riddorck/Utils/blob/master/aur-install.sh"
-#43#    sh                 aur-install.sh package-query [user #32#]
-#44#    sh                 aur-install.sh yaourt [user #32#]
-#45#    rm                 aur-install.sh
-#46#    yaourt             -S spotify imwheel
-#47#    reboot
+#02#    fdisk              -l                                                               [Segnare partizione - Ignorare rom, loop o airoot]
+#03#    parted             [partizione #6#] mklabel msdos                                   [Solitamente /dev/sda]
+#04#    parted             [partizione #6#] mktable msdos
+#05#    parted             [partizione #6#] mkpart primary ext4 1M 100%
+#06#    fdisk              -l                                                               [Segnare nuova partizione - Ignorare rom, loop o airoot]
+#07#    mkfs.ext4          [partizione #10#]                                                [Solitamente /dev/sda1]
+#08#    mount              [partizione #10#] /mnt
+#09#    pacstrap           /mnt base base-devel                                             [Installa pacchetti di base] [Mirror list a /etc/pacman.d/mirrorlist]
+#10#    genfstab           -U /mnt >> /mnt/etc/fstab
+#11#    arch-chroot        /mnt                                                             [Entra in chroot]
+#12#    ln                 -sf /usr/share/zoneinfo/Europe/Rome /etc/localtime
+#13#    hwclock            --systohc
+#14#    nano               /etc/locale.gen                                                  [Decommenta le lingue che vuoi (it_IT.UTF-8 UTF-8)]
+#15#    locale-gen
+#16#    nano               /etc/locale.conf                                                 [Imposta la variable (LANG=it_IT.UTF-8)]
+#17#    nano               /etc/vconsole.conf                                               [Imposta la variable (KEYMAP=it)]
+#18#    nano               /etc/hostname                                                    [Aggiungi l'hostname del pc]
+#19#    passwd                                                                              [Imposta la password di root (root)]
+#20#    pacman             -S grub
+#21#    grub-install       [partizione #6#]
+#22#    grub-mkconfig      -o /boot/grub/grub.cfg                                           [Nota bene: grub.cfg va rigenerato dopo ogni cambiamento a /etc/default/grub o ai file in /etc/grub.d/]
+#23#    exit
+#24#    pacman             -Sy xorg xorg-xinit xorg-xsetroot
+#25#    pacman             -Sy i3 alsa-utils net-tools acpi linux-headers
+#26#    pacman             -Sy dhcpcd dhclient wpa_supplicant wpa_actiond iproute
+#27#    pacman             -Sy wget terminator git dmenu ttf-freefont
+#28#    pacman             -Sy xbindkeys wireless_tools
+#29#    pacman             -Sy thunar viewnior chromium notepadqq eclipse
+#30#    pacman             -Sy thunar-archive-plugin unrar p7zip file-roller thunar-volman
+#31#    pacman             -Sy libreoffice vlc qt4 virtualbox keepass
+#32#    useradd            -m [user]
+#33#    passwd             [user #32#]
+#34#    EDITOR=nano visudo                                                                  [Aggiungere riga: [user #32#] ALL=(ALL:ALL) ALL]
+#35#    cp                 /etc/X11/xinit/xinitrc /home/[user #32#]/.xinitrc
+#36#    nano               /home/[user #32#]/.xinitrc                                       [Aggiungere comandi da eseguire all'avvio di X (setxkbmap it & [a capo] exec i3 & [a capo] exec imwheel --kill)]
+#37# @  pacman             -S virtualbox-guest-utils                                        [Solo se si usa VirtualBox]
+#38#    systemctl          enable dhcpcd
+#39#    wget               "https://github.com/Riddorck/Utils/blob/master/aur-install.sh"
+#40#    sh                 aur-install.sh package-query [user #32#]
+#41#    sh                 aur-install.sh yaourt [user #32#]
+#42#    rm                 aur-install.sh
+#43#    yaourt             -S spotify imwheel
+#44#    reboot
 
 
 
