@@ -47,7 +47,8 @@
 #43#    sh                 aur-install.sh package-query [user #32#]
 #44#    sh                 aur-install.sh yaourt [user #32#]
 #45#    rm                 aur-install.sh
-#46#    yaourt             -S spotify
+#46#    yaourt             -S spotify imwheel
+#47#    imwheel            --kill
 #47#    startx
 
 
