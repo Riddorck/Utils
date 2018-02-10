@@ -120,14 +120,14 @@ chmod +x .xinitrc
 }
 
 NOCHROOT(){
-	WIFI_CONNECTIONS "${WIFI_CONFIG}"
-	ETH_CONNECTION
+	#WIFI_CONNECTIONS "${WIFI_CONFIG}"
+	#ETH_CONNECTION
 
-	if [ "${CONNECTION}" == "wifi" ]; then
-		netctl start $(GET_WIFI)-${ESSID}
-	elif [ "{$CONNECTION}" == "eth" ]; then
+	#if [ "${CONNECTION}" == "wifi" ]; then
+	#	netctl start $(GET_WIFI)-${ESSID}
+	#elif [ "{$CONNECTION}" == "eth" ]; then
 		netctl start eth-connection
-	fi
+	#fi
 
 	if [ "${BIOS}" == "BIOS" ]; then
 		BIOS ${DISK}
