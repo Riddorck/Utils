@@ -203,9 +203,7 @@ USER(){
 	
 	CREATE_HOME_SCRIPTS ${user}
 
-	INSTALL_YAOURT ${user}
-	
-	yaourt -S spotify
+	#INSTALL_YAOURT ${user}
 
 	popd
 }
@@ -215,8 +213,6 @@ if [ ${#} -ge 1 ]; then
 		CHROOT
 	elif [ ${1} = "user" ]; then
 		USER
-	elif [ ${1} = "yaourt" ]; then
-		INSTALL_YAOURT
 	else
 		NOCHROOT
 	fi
