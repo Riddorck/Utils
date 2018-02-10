@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-. ./CONFIG
+. CONFIG
 
 
 GET_ETH(){
