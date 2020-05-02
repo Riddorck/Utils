@@ -2,7 +2,7 @@
 
 #01#    loadkeys           it                                                               [Imposta la tastiera it TEMPORANEAMENTE]	
 #02#    fdisk              -l                                                               [Segnare partizione - Ignorare rom, loop o airoot]	
-#03#    parted             [partizione #02#] mklabel msdos                                   [Solitamente /dev/sda]	
+#03#    parted             [partizione #02#] mklabel msdos                                  [Solitamente /dev/sda]	
 #04#    parted             [partizione #02#] mktable msdos	
 #05#    parted             [partizione #02#] mkpart primary ext4 1M 100%	
 #06#    fdisk              -l                                                               [Segnare nuova partizione - Ignorare rom, loop o airoot]	
