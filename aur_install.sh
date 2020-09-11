@@ -7,7 +7,7 @@ AUR_INSTALL(){
 	tar -xf ${package}.tar.gz
 	cd ${package}
 	makepkg -fs --noconfirm
-	echo ${user} | sudo -S pacman --noconfirm -U ${package}*.pkg.tar.xz
+	echo ${user} | sudo -S pacman --noconfirm -U ${package}.pkg.tar.xz
 	cd ..
 	rm -f ${package}.tar.gz
 	rm -rf ${package}
