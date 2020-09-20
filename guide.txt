@@ -76,3 +76,4 @@ KDE:
 
 #01#    pacman             -S keepass	
 #02#    yaourt             -S wpa_actiond                                                   [ ? ]	
+#03#    sed -i '1s/^.*#//;s/\r$//'  yourBashScript
